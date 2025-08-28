@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const cookie_parser_1 = require("cookie-parser");
+const auth_1 = require("./routes/auth");
+const employees_1 = require("./routes/employees");
+const attendance_1 = require("./routes/attendance");
+const salary_1 = require("./routes/salary");
+const payroll_1 = require("./routes/payroll");
+const app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.use((0, cookie_parser_1.default)());
+app.use("/auth", auth_1.default);
+app.use("/employees", employees_1.default);
+app.use("/attendance", attendance_1.default);
+app.use("/salary", salary_1.default);
+app.use("/payroll", payroll_1.default);
+const PORT = 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+//# sourceMappingURL=index.js.map
